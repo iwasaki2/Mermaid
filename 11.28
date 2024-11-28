@@ -1,0 +1,25 @@
+flowchart TD
+attend{A}
+tarinai{E+R}
+pass[合格]
+fail[不合格]
+
+
+attend -->|=10,11| tarinai
+tarinai -->|'>= 60'| pass
+tarinai -->|'<60'| loop
+
+
+loop[/"ーーーー"\]
+i{P}
+b[Pin追試点数]
+loopend[\"3回終了またはP>=40"/]
+loop -->b
+b -->loopend
+loopend -->i
+i-->|'<40'|fail
+attend -->|<10|fail
+
+i-->|'=>40'|pass
+
+
